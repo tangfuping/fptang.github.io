@@ -3,22 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tangfuping.github.io/posts/</loc>
-    <lastmod>2019-09-20T20:15:35+08:00</lastmod>
+    <loc>https://tangfuping.github.io/posts/hugo/</loc>
+    <lastmod>2019-09-20T22:23:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tangfuping.github.io/posts/sort1/</loc>
-    <lastmod>2019-09-20T20:15:35+08:00</lastmod>
+    <loc>https://tangfuping.github.io/posts/</loc>
+    <lastmod>2019-09-20T22:23:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://tangfuping.github.io/tags/</loc>
-    <lastmod>2019-09-20T20:15:35+08:00</lastmod>
+    <lastmod>2019-09-20T22:23:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangfuping.github.io/tags/%E5%85%B6%E4%BB%96/</loc>
+    <lastmod>2019-09-20T22:23:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://tangfuping.github.io/</loc>
+    <lastmod>2019-09-20T22:23:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangfuping.github.io/posts/sort1/</loc>
     <lastmod>2019-09-20T20:15:35+08:00</lastmod>
   </url>
   

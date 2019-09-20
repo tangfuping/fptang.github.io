@@ -1,0 +1,1317 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>算法训练营01 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://tangfuping.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="算法训练营01"/>
+<meta name="twitter:description" content="[TOC]
+说明 习题1 栈 描述 实现一个栈，完成以下功能： * 入栈 * 出栈 * 询问栈中位置Y是谁
+一开始栈为空，栈中位置从1开始（即栈底位置为1）
+输入 第一行一个整数n，表示操作的个数。 接下来的n行，每一行第一个数字表示操作（见描述）： * 若为数字1，则接下来有一串字符串X，表示将X压入栈中； * 若为数字2，表示弹出栈顶（保证栈非空），并输出出栈的这个人； * 若为数字3，则接下来有一个整数Y，表示询问栈中位置Y是谁（保证位置Y合法），并输出名字。
+输出 将所有操作2和操作3输出，一行一个。
+输入样例 11 1 a 1 b 1 c 3 1 3 2 3 2 2 1 d 3 1 3 2 3 3  输出样例 a b c c a b d  解法一 数组模拟，将数组的右端当做栈顶。 每次操作时间复杂度均为O（1）
+C&#43;&#43;具体实现 #include &lt;bits/stdc&#43;&#43;.h&gt; using namespace std; const int N = 100005; // Stack:栈 // top:栈顶位置 string Stack[N]; int n, top; // 压入栈顶 // name:被压入的人的名字 void push(string name) { Stack[&#43;&#43;top] = name; } // 弹出栈顶 // 返回值：被弹出人的姓名 string pop() { return Stack[top--]; } // 询问栈中某个位置上的人的姓名（栈底位置为1，向栈顶方向的位置依次递增） // pos:询问的位置 // 返回值：pos位置上人的姓名 string query(int pos) { return Stack[pos]; } int main(){ int n; scanf(&quot;%d&quot;, &amp;n); char name[20]; for(; n--; ) { int op; scanf(&quot;%d&quot;, &amp;op); if (op == 1) { scanf(&quot;%s&quot;, name); push(name); } else if (op == 2) { printf(&quot;%s\n&quot;, pop()."/>
+
+    <meta property="og:title" content="算法训练营01" />
+<meta property="og:description" content="[TOC]
+说明 习题1 栈 描述 实现一个栈，完成以下功能： * 入栈 * 出栈 * 询问栈中位置Y是谁
+一开始栈为空，栈中位置从1开始（即栈底位置为1）
+输入 第一行一个整数n，表示操作的个数。 接下来的n行，每一行第一个数字表示操作（见描述）： * 若为数字1，则接下来有一串字符串X，表示将X压入栈中； * 若为数字2，表示弹出栈顶（保证栈非空），并输出出栈的这个人； * 若为数字3，则接下来有一个整数Y，表示询问栈中位置Y是谁（保证位置Y合法），并输出名字。
+输出 将所有操作2和操作3输出，一行一个。
+输入样例 11 1 a 1 b 1 c 3 1 3 2 3 2 2 1 d 3 1 3 2 3 3  输出样例 a b c c a b d  解法一 数组模拟，将数组的右端当做栈顶。 每次操作时间复杂度均为O（1）
+C&#43;&#43;具体实现 #include &lt;bits/stdc&#43;&#43;.h&gt; using namespace std; const int N = 100005; // Stack:栈 // top:栈顶位置 string Stack[N]; int n, top; // 压入栈顶 // name:被压入的人的名字 void push(string name) { Stack[&#43;&#43;top] = name; } // 弹出栈顶 // 返回值：被弹出人的姓名 string pop() { return Stack[top--]; } // 询问栈中某个位置上的人的姓名（栈底位置为1，向栈顶方向的位置依次递增） // pos:询问的位置 // 返回值：pos位置上人的姓名 string query(int pos) { return Stack[pos]; } int main(){ int n; scanf(&quot;%d&quot;, &amp;n); char name[20]; for(; n--; ) { int op; scanf(&quot;%d&quot;, &amp;op); if (op == 1) { scanf(&quot;%s&quot;, name); push(name); } else if (op == 2) { printf(&quot;%s\n&quot;, pop()." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangfuping.github.io/posts/sort01/" />
+<meta property="article:published_time" content="2019-09-20T16:46:45+08:00" />
+<meta property="article:modified_time" content="2019-09-20T16:46:45+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://tangfuping.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">算法训练营01</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 20, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          10 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<p>[TOC]</p>
+
+<h3 id="说明">说明</h3>
+
+<h3 id="习题1-栈">习题1 栈</h3>
+
+<h4 id="描述">描述</h4>
+
+<p>实现一个栈，完成以下功能：
+* 入栈
+* 出栈
+* 询问栈中位置Y是谁</p>
+
+<p>一开始栈为空，栈中位置从1开始（即栈底位置为1）</p>
+
+<h4 id="输入">输入</h4>
+
+<p>第一行一个整数n，表示操作的个数。 
+接下来的n行，每一行第一个数字表示操作（见描述）：
+* 若为数字1，则接下来有一串字符串X，表示将X压入栈中；
+* 若为数字2，表示弹出栈顶（保证栈非空），并输出出栈的这个人；
+* 若为数字3，则接下来有一个整数Y，表示询问栈中位置Y是谁（保证位置Y合法），并输出名字。</p>
+
+<h4 id="输出">输出</h4>
+
+<p>将所有操作2和操作3输出，一行一个。</p>
+
+<h4 id="输入样例">输入样例</h4>
+
+<pre><code>11
+1 a
+1 b
+1 c
+3 1
+3 2
+3 2
+2
+1 d
+3 1
+3 2
+3 3
+</code></pre>
+
+<h4 id="输出样例">输出样例</h4>
+
+<pre><code>a
+b
+c
+c
+a
+b
+d
+</code></pre>
+
+<h4 id="解法一">解法一</h4>
+
+<p>数组模拟，将数组的右端当做栈顶。
+每次操作时间复杂度均为O（1）</p>
+
+<h4 id="c-具体实现">C++具体实现</h4>
+
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 100005;
+
+// Stack:栈
+// top:栈顶位置
+string Stack[N];
+int n, top;
+
+// 压入栈顶
+// name:被压入的人的名字
+void push(string name) {
+    Stack[++top] = name;
+}
+
+// 弹出栈顶
+// 返回值：被弹出人的姓名
+string pop() {
+    return Stack[top--];
+}
+
+// 询问栈中某个位置上的人的姓名（栈底位置为1，向栈顶方向的位置依次递增）
+// pos:询问的位置
+// 返回值：pos位置上人的姓名
+string query(int pos) {
+    return Stack[pos];
+}
+
+int main(){
+    int n;
+    scanf(&quot;%d&quot;, &amp;n);
+    char name[20];
+    for(; n--; ) {
+        int op;
+        scanf(&quot;%d&quot;, &amp;op);
+        if (op == 1) {
+            scanf(&quot;%s&quot;, name);
+            push(name);
+        } else if (op == 2) {
+            printf(&quot;%s\n&quot;, pop().c_str());
+        } else {
+            int pos;
+            scanf(&quot;%d&quot;, &amp;pos);
+            printf(&quot;%s\n&quot;, query(pos).c_str());
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+<h3 id="习题2-队列">习题2：队列</h3>
+
+<h4 id="描述-1">描述</h4>
+
+<p>实现一个队列，完成以下功能：
+* 入队
+* 出列
+* 询问队列中位置Y是谁</p>
+
+<p>一开始队列为空，队列中的位置从1开始（即队头位置为1）</p>
+
+<h4 id="输入-1">输入</h4>
+
+<p>第一行一个整数n，表示操作个数。
+接下来n行，每行第一个数字表示操作：
+* 若为数字1，则接下来有一串字符串X，表示将X加入队列；
+* 若为数字2，表示出列（保证队列非空），并输出出列的这个人。
+* 若为数字3，则接下来有一个整数Y，表示询问队列中位置Y是谁（保证位置Y合法），并输出名字</p>
+
+<h4 id="输出-1">输出</h4>
+
+<p>将所有操作2和操作3输出，一行一个。</p>
+
+<h4 id="输出样例-1">输出样例</h4>
+
+<pre><code>11
+1 a
+1 b
+1 c
+3 1
+3 2
+3 3
+2
+1 d
+3 1
+3 2
+3 3
+</code></pre>
+
+<h4 id="输出样例-2">输出样例</h4>
+
+<pre><code>a
+b
+c
+a
+b
+c
+d
+</code></pre>
+
+<h4 id="解法一-1">解法一</h4>
+
+<p>数组模拟，用两个变量head和tail分别记录队头和队尾的后一位。
+每次操作时间复杂度均为O（1）。</p>
+
+<h4 id="解法一c-具体实现">解法一C++具体实现</h4>
+
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int N = 100005;
+
+// Queue:队列
+// head:队首位置
+// tail:队尾位置的后一位
+string Queue[N];
+int head, tail;
+
+// 队尾入队
+// name:入队人的名字
+void enqueue(string name) {
+    Queue[tail++] = name;
+}
+
+// 队首出队
+// 返回值：队首的名字
+string dequeue() {
+    return Queue[head++];
+}
+
+// 询问队列中某个位置上的人的姓名（队首位置为1，往后位置依次递增）
+// pos:询问的位置
+// 返回值：pos位置上人的姓名
+string query(int pos) {
+    return Queue[head + pos - 1];
+}
+
+
+int main(){
+    int n;
+    scanf(&quot;%d&quot;, &amp;n);
+    char name[20];
+    for(; n--; ) {
+        int op;
+        scanf(&quot;%d&quot;, &amp;op);
+        if (op == 1) {
+            scanf(&quot;%s&quot;, name);
+            enqueue(name);
+        } else if (op == 2) {
+            printf(&quot;%s\n&quot;, dequeue().c_str());
+        } else {
+            int pos;
+            scanf(&quot;%d&quot;, &amp;pos);
+            printf(&quot;%s\n&quot;, query(pos).c_str());
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+<h4 id="解法二">解法二</h4>
+
+<p>如果保证在整个过程中，队列中人数都不会超过l，但入队次数会超过k。如何用一个大小为k的数组解决？
+循环队列
+数组模拟，用两个变量head和tail分别记录对头和队尾的后一位。
+若head或tail达到了数组的最大长度位置，则让head或tail等于0
+每次操作时间复杂度均为O（1）</p>
+
+<h4 id="解法二c-具体实现">解法二C++具体实现</h4>
+
+<pre><code class="language-c++">// 循环队列
+// Queue:队列
+// head:队首位置
+// tail:队尾位置的后一位
+string Queue[N];
+int head, tail;
+
+// 队尾入队
+// name:入队人的名字
+void enqueue(string name) {
+    Queue[tail] = name;
+    tail = tail + 1;
+    if(tail == N)
+        tail = 0;
+}
+
+// 队首出队
+// 返回值：队首的名字
+string dequeue() {
+    string ret = Queue[head];
+    head = head + 1;
+    if (head == N)
+        head = 0;
+    return ret;
+}
+
+// 询问队列中某个位置上的人的姓名（队首位置为1，往后位置依次递增）
+// pos:询问的位置
+// 返回值：pos位置上人的姓名
+string query(int pos) {
+    int p = head + pos - 1;
+    if (p &gt;= N)
+        p -= N;
+    return Queue[p];
+}
+</code></pre>
+
+<h3 id="习题3-二叉树">习题3：二叉树</h3>
+
+<h4 id="描述-2">描述</h4>
+
+<p>给定一个1到n的排列，按顺序依次插入到一颗二叉排序树中，请你将这棵二叉树前序遍历和后序遍历输出。保证树的高度不超过50
+前序遍历：根左右
+后序遍历：左右根</p>
+
+<h4 id="输入-2">输入</h4>
+
+<p>第一行一个整数n，表示操作的个数。 
+接下来一行表示为n个整数，代表1到n的一个排列。</p>
+
+<h4 id="输出-2">输出</h4>
+
+<p>输出所建成的二叉树的前序遍历和后序遍历</p>
+
+<h4 id="输入样例-1">输入样例</h4>
+
+<pre><code>10
+2 7 9 3 5 6 10 8 4 1
+</code></pre>
+
+<h4 id="输出样例-3">输出样例</h4>
+
+<pre><code>2 1 7 3 5 4 9 7 8 10
+1 4 6 5 3 8 10 9 7 2 
+</code></pre>
+
+<h4 id="问题分析">问题分析</h4>
+
+<p>排列 -&gt; 无重复元素
+树高不超过50 -&gt; 每次插入一个元素时，不会在二叉树上走超过50步 -&gt; 插入的时间复杂度O（50n）</p>
+
+<h4 id="c-具体实现-1">C++具体实现</h4>
+
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+// rt:二叉树的根节点
+// cnt: 整个二叉树的大小
+int rt,cnt;
+
+// v:当前树   lson：左子树   rson：右子树
+int v[100005],lson[100005],rson[100005];
+
+// 在以rt为根的数中插入一个数字val
+// val:要插入的数字
+// rt:当前节点
+void _insert(int rt,int val){
+    // 插入根节点
+    if(v[rt]==0){
+        v[rt]=val;return;
+    }
+    // 插入到左子树
+    if(val&lt;v[rt]){
+        if(lson[rt]==0){ //左子树为空
+            lson[rt]=++cnt;
+            v[cnt]=val;
+        }
+        else{ //左子树不为空，递归插入到左子树
+            _insert(lson[rt],val);
+        }
+    }
+    else{ //右子树同理
+        if(rson[rt]==0){
+            rson[rt]=++cnt;
+            v[cnt]=val;
+        }
+        else{
+            _insert(rson[rt],val);
+        }
+    }
+}
+
+// 输出rt为根的二叉树的前序遍历
+// rt:当前节点
+void pre(int rt){
+    if(rt==0) return;
+    printf(&quot;%d &quot;,v[rt]); //根
+    pre(lson[rt]); //左
+    pre(rson[rt]); //右
+}
+
+// 输出rt为根的二叉树的后序遍历
+// rt:当前节点
+void back(int rt){
+    if(rt==0) return;
+    back(lson[rt]); //左
+    back(rson[rt]); //右
+    printf(&quot;%d &quot;,v[rt]); //根
+}
+
+int main(){
+    rt=1;cnt=1;
+    int n,x;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=0;i&lt;n;++i){
+        scanf(&quot;%d&quot;,&amp;x);
+        _insert(rt,x);
+    }
+    pre(rt);printf(&quot;\n&quot;);
+    back(rt);printf(&quot;\n&quot;);
+    return 0;
+}
+</code></pre>
+
+<h3 id="习题4-数字盒子">习题4：数字盒子</h3>
+
+<h4 id="描述-3">描述</h4>
+
+<p>你有一个盒子，你可以往里面放数，也可以从里面取出数。</p>
+
+<p>初始时，盒子是空的，你会依次做 Q 个操作，操作分为两类：
+* 插入操作：询问盒子中是否存在数 x，如果不存在则把数 x 丢到盒子里。
+* 删除操作：询问盒子中是否存在数 x，如果存在则取出 x。</p>
+
+<p>对于每个操作，你需要输出是否成功插入或删除。</p>
+
+<p>对于 100% 的数据，保证x&lt;10^18，Q≤5*10^5</p>
+
+<h4 id="输入-3">输入</h4>
+
+<p>第一行一个正整数 Q，表示操作个数。
+接下来 Q 行依次描述每个操作。每行 2 个用空格隔开的非负整数 op,x 描述一个操作：
+* op 表示操作类型
+* op=1 则表示这是一个插入操作
+* op=2 则表示这是一个删除操作</p>
+
+<p>x 的意义与操作类型有关，具体见题目描述</p>
+
+<h4 id="输出-3">输出</h4>
+
+<p>按顺序对所有操作输出，对于每个操作输出一行，如果成功则输出“Succeeded”（不含引号），如果失败则输出“Failed”（不含引号）。</p>
+
+<h4 id="输入样例-2">输入样例</h4>
+
+<pre><code>6
+1 100 
+1 100  
+2 100  
+1 200  
+2 100  
+2 200  
+</code></pre>
+
+<h4 id="输出样例-4">输出样例</h4>
+
+<pre><code>Succeeded
+Failed
+Succeeded
+Succeeded
+Failed
+Succeeded
+</code></pre>
+
+<h4 id="提示">提示</h4>
+
+<p>[对于 x 较小的情况，我们只需要用数组记录每个数是否在盒子里即可。]
+[对于 x 较大的情况，我们可不可以用什么方法把它们“变小”呢？可以想想哈希表哦！]</p>
+
+<h4 id="思路">思路</h4>
+
+<p>方法一，使用set直接进行模拟，复杂度O(nlogn)
+方法二，使用vector + 散列表，将一个大数取模，转换成一个较小的数储存起来。比较不妥的是可能会有一些数字出现重复，那么就在原来储存的vector里面把原来的数字压进去，每次O(1)的时间访问到这个vector后再在里面进行遍历，看数字有无出现过。</p>
+
+<h4 id="图解">图解</h4>
+
+<p><img src="en-resource://database/1045:1" alt="67bb0c8bf2f2f910fb5cf6214f198caf.png" /></p>
+
+<h4 id="c-具体实现-2">C++具体实现</h4>
+
+<pre><code class="language-C++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+typedef long long ll;
+const int Mod = 1000003;
+vector&lt;ll&gt; table[Mod];
+//哈希函数
+int Hash(ll x){
+    return x%Mod;
+}
+// 执行操作时会调用这个函数
+// op：对应该次操作的 op（具体请见题目描述）
+// x：对应该次操作的 x（具体请见题目描述）
+// 返回值：如果输出为&quot;Succeeded&quot;，则这个函数返回 1，否则返回 0
+bool check(int op, ll x) {
+    int h = Hash(x);//求出x的哈希值
+    //在链表中找到x（采用C++中的vector或者Java中的List去实现链表的功能）
+    vector&lt;ll&gt;::iterator ptr = table[h].end();//返回向量尾指针
+    for(vector&lt;ll&gt;::iterator it = table[h].begin();it!=table[h].end();++it)
+      //如果x存在
+        if((*it)==x){ptr = it;break;}
+    if(op==1){//x不存在则插入
+        if(ptr == table[h].end()){
+            table[h].push_back(x);//向量尾部增加一个元素X
+            return 1;
+        }
+        return 0;
+    }else{//op为2，则执行删除操作
+        if(ptr != table[h].end()){//用最后一个元素去填补要删除的元素
+            *ptr = table[h].back();//back()得到数组的最后一个单元的引用,即最后一个单元元素的数值
+            table[h].pop_back();//去掉数组的最后一个元素
+            return 1;
+        }
+        return 0;
+    }
+}
+
+int main() {
+    int Q, op;
+    ll x;
+    scanf(&quot;%d&quot;, &amp;Q);
+    while (Q--) {
+        scanf(&quot;%d%lld&quot;, &amp;op, &amp;x);
+        puts(check(op, x) ? &quot;Succeeded&quot; : &quot;Failed&quot;);
+    }
+    return 0;
+}
+</code></pre>
+
+<h4 id="补充c-的vector知识">补充C++的vector知识</h4>
+
+<pre><code class="language-C++">int main()
+{
+    vector&lt;int&gt; a;
+    for(int i=0;i&lt;10;i++)
+    {
+        a.push_back(i);//向尾部增加元素
+    }
+    printf(&quot;%d&quot;,a.at(3));//返回位置1元素的引用，输出3
+    printf(&quot;%d&quot;,a.begin());//返回向量头指针，指向第一个元素
+    printf(&quot;%d&quot;,a.end());//返回向量尾指针，指向向量最后一个元素的下一个位置
+    printf(&quot;%d&quot;,a.back());//返回尾元素的引用，输出9
+    a.pop_back();//去掉数组的最后一个元素
+    return 0;
+}
+</code></pre>
+
+<h3 id="习题5-重编码">习题5：重编码</h3>
+
+<h4 id="描述-4">描述</h4>
+
+<p>有一篇文章，文章包含 n 种单词，单词的编号从 1 至 n，第 i 种单词的出现次数为 w[i]。</p>
+
+<p>现在，我们要用一个 2 进制串（即只包含 0 或 1 的串） s[i] 来替换第 i 种单词，使其满足如下要求：对于任意的 1≤i,j≤n（i≤j），都有 s[i] 不是 s[j] 的前缀。（这个要求是为了避免二义性）</p>
+
+<p>你的任务是对每个单词选择合适的 s[i]，使得替换后的文章总长度（定义为所有单词出现次数与替换它的二进制串的长度乘积的总和）最小。求这个最小长度。</p>
+
+<p>字符串 S1（不妨假设长度为 n）被称为字符串 S2 的前缀，当且仅当：S2 的长度不小于 n，且 S1 与 S2 前 n 个字符组组成的字符串完全相同。</p>
+
+<h4 id="输入-4">输入</h4>
+
+<p>第一行一个整数 n，表示单词种数。
+第 2 行到第 n+1 行，第 i+1 行包含一个正整数 w[i]，表示第 i 种单词的出现次数。</p>
+
+<h4 id="输出-4">输出</h4>
+
+<p>输出一行一个整数，表示整篇文章重编码后的最短长度。</p>
+
+<h4 id="输入样例-3">输入样例</h4>
+
+<pre><code>4
+1
+1
+2
+2
+</code></pre>
+
+<h4 id="输出样例-5">输出样例</h4>
+
+<pre><code>12
+</code></pre>
+
+<h4 id="样例解释">样例解释</h4>
+
+<p>一种最优方案是令 s[1]=000，s[2]=001，s[3]=01，s[4]=1。这样文章总长即为 1*3+1*3+2*2+1*2=12。
+另一种最优方案是令 s[1]=00，s[2]=01，s[3]=10，s[4]=11。这样文章总长也为 12。</p>
+
+<h4 id="提示-1">提示</h4>
+
+<p>[我们希望越长的串出现次数越少，那么贪心地考虑，让出现次数少的串更长。]
+[于是我们先区分出出现次数最少的 2 个串，在它们的开头分别添加 0 和 1。]
+[接着，由于它们已经被区分（想一想，为什么？），所以我们可以把它们看作是一个单词，且其出现次数为它们的和，然后继续上面的“添数”和“合并”操作。]
+[这样，我们不停地“合并单词”，直到只剩 1 个单词，即可结束。]
+[可以证明这是最优的。]
+[朴素的实现是 O(n^2) 的，可以用二叉堆或<strong>std::priority_queue</strong>将其优化至 O(nlogn)。]</p>
+
+<h4 id="图解-1">图解</h4>
+
+<p><img src="en-resource://database/1047:1" alt="cdb1d7cfb84b11cc981798afa1715d49.jpeg" /></p>
+
+<h4 id="c-具体实现-3">C++具体实现</h4>
+
+<pre><code class="language-C++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+typedef long long ll;
+//pq：一个小顶堆优先队列，用于辅助后续计算
+priority_queue&lt;ll, vector&lt;ll&gt;, greater&lt;ll&gt; &gt; pq;
+
+// 这是求解整个问题的函数
+// w：题目描述中的 w（所有）
+// n：题目描述中的 n
+// 返回值：答案
+ll getAnswer(int n, vector&lt;ll&gt; w) {
+    //将所有w加入优先队列pq中
+    for(int i=0; i &lt; n; ++i)
+        pq.push(w[i]);
+    ll sum = 0;//置零返回值
+    while (pq.size() &gt; 1) { // 当pq中仍有超过多少元素时进行循环呢？
+            ll newEle = 0; // 这是本次合并后将要加入队列的新元素
+            //从pq中取出最小的两个元素并合并
+            for(int k = 0; k &lt; 2; ++k) {
+                newEle += pq.top();
+                pq.pop(); // 不能漏
+            }
+            sum += newEle; //将 本次合并对答案的贡献加入答案
+            pq.push(newEle); // 将新元素加入队列
+     }
+     return sum; // 返回答案
+}
+
+int main()
+{
+    int n;
+    scanf(&quot;%d&quot;, &amp;n);
+    
+    vector&lt;ll&gt; w;
+//    reserve()只修改capacity大小，不修改size大小，
+//    resize()既修改capacity大小，也修改size大小。
+    w.reserve(n);
+    for (int i = 0; i &lt; n; i++) {
+        ll a;
+        scanf(&quot;%lld&quot;, &amp;a);
+        w.push_back(a);
+    }
+        printf(&quot;%lld\n&quot;, getAnswer(n, w));
+    
+    return 0;
+}
+</code></pre>
+
+<h4 id="补充c-的priority-queue用法-大顶堆-小顶堆">补充C++的priority_queue用法（大顶堆，小顶堆）</h4>
+
+<h5 id="优先输出大数据">优先输出大数据</h5>
+
+<p>priority_queue<Type, Container, Functional></p>
+
+<p>Type为数据类型， Container为保存数据的容器，Functional为元素比较方式。</p>
+
+<p>如果不写后两个参数，那么容器默认用的是vector，比较方式默认用operator&lt;，也就是优先队列是大顶堆，队头元素最大。</p>
+
+<pre><code class="language-C++">#include&lt;iostream&gt;  
+#include&lt;queue&gt;  
+using namespace std;  
+int main(){  
+    priority_queue&lt;int&gt; pq;  
+    pq.push(1);  
+    pq.push(2);  
+    pq.push(3);   
+    for(int i=0;i&lt;3;i++){  
+        cout&lt;&lt;pq.top()&lt;&lt;endl;  
+        pq.pop();  
+    }  
+    return 0;  
+}
+</code></pre>
+
+<pre><code>输出：3 2 1
+</code></pre>
+
+<h5 id="优先输出小数据">优先输出小数据</h5>
+
+<p>priority_queue<ll,vector<11>,greater<ll>&gt; pq;
+例：</p>
+
+<pre><code class="language-C++">#include&lt;iostream&gt;  
+#include&lt;queue&gt;  
+using namespace std;  
+  
+int main(){  
+    priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; pq;  
+    pq.push(1);  
+    pq.push(2);  
+    pq.push(3);    
+    for(int i=0;i&lt;3;i++){  
+        cout&lt;&lt;p.top()&lt;&lt;endl;  
+        p.pop();  
+    }  
+    return 0;  
+}  
+</code></pre>
+
+<pre><code>输出：1 2 3
+</code></pre>
+
+<h4 id="拓展-若将题中的二进制串换成k进制呢">拓展：若将题中的二进制串换成k进制呢？</h4>
+
+<p>C++具体实现：</p>
+
+<pre><code class="language-c++">#include &lt;queue&gt;
+#include &lt;cstdio&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;vector&gt;
+using namespace std;
+typedef long long ll;
+priority_queue&lt;ll, vector&lt;ll&gt;, greater&lt;ll&gt; &gt; Q;
+// n: 初始点数
+// k: 哈夫曼树的叉树
+// w: w[i] 表示第i个点的点权
+// 返回值：最终编码的长度
+ll solve(const vector&lt;ll&gt;&amp; w, int n, int k)
+{
+    ll sum = 0;
+    for (int i = 0; i &lt; n; ++i)
+        Q.push(w[i]);
+    if(k!=2){
+    int r = n%(k-1)==1 ? 0 : k-n%(k-1);
+    n += r;
+    while(r--)
+        Q.push(0);}
+    while(n&gt;1)
+    {
+        ll newEle = 0;
+        for (int i = 0; i &lt; k; ++i)
+        {
+            newEle += Q.top();
+            Q.pop();
+        }
+        sum += newEle;
+        Q.push(newEle);
+        n -= k-1;
+    }
+    return sum;
+}
+int main()
+{
+    int n, k;
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;k);
+    vector&lt;ll&gt; w;
+    w.reserve(n);
+    for (int i = 0; i &lt; n; i++)
+    {
+        ll a;
+        scanf(&quot;%lld&quot;, &amp;a);
+        w.push_back(a);
+    }
+    printf(&quot;%lld\n&quot;, solve(w, n, k));
+    return 0;
+}
+</code></pre>
+
+<h3 id="习题6-成绩排序">习题6：成绩排序</h3>
+
+<h4 id="描述-5">描述</h4>
+
+<p>有 n 名学生，它们的学号分别是 1,2,…,n。这些学生都选修了邓老师的算法训练营、数据结构训练营这两门课程。</p>
+
+<p>学期结束了，所有学生的课程总评都已公布，所有总评分数都是 [0,100] 之间的整数。巧合的是，不存在两位同学，他们这两门课的成绩都完全相同。</p>
+
+<p>邓老师希望将这些所有的学生按这两门课程的总分进行降序排序，特别地，如果两位同学的总分相同，那邓老师希望把算法训练营得分更高的同学排在前面。由于上面提到的巧合，所以，这样排名就可以保证没有并列的同学了。</p>
+
+<p>邓老师将这个排序任务交给了他的助教。可是粗心的助教没有理解邓老师的要求，将所有学生按学号进行了排序。</p>
+
+<p>邓老师希望知道，助教的排序结果中，存在多少逆序对。</p>
+
+<p>如果对于两个学生 (i,j) 而言，i 被排在了 j 前面，并且i 本应被排在 j 的后面，我们就称 (i,j) 是一个逆序对。</p>
+
+<p>请你先帮邓老师把所有学生按正确的顺序进行排名，再告诉他助教的错误排名中逆序对的数目。</p>
+
+<h4 id="输入-5">输入</h4>
+
+<p>第一行一个整数 n，表示学生的个数。
+第 2 行到第 n+1 行，每行 2 个用空格隔开的非负整数，第 i+1 行的两个数依次表示学号为 i 的同学的算法训练营、数据结构训练营的总评成绩。</p>
+
+<h4 id="输出-5">输出</h4>
+
+<p>输出包含 n+1 行。
+前 n 行表示正确的排序结果，每行 4 个用空格隔开的整数，第 i 行的数依次表示排名为 i 的同学的学号、总分、算法训练营成绩、数据结构训练营成绩。
+第 n+1 行一个整数，表示助教的错误排名中逆序对的数目。</p>
+
+<h4 id="输入样例-4">输入样例</h4>
+
+<pre><code>3
+95 85
+90 90
+100 99
+</code></pre>
+
+<h4 id="输出样例-6">输出样例</h4>
+
+<pre><code>3 199 100 99
+1 180 95 85
+2 180 90 90
+2
+</code></pre>
+
+<h4 id="样例解释-1">样例解释</h4>
+
+<p>学号为 3 的同学总分为 199，是最高的，所以他应该排第一名。
+学号为 1 的同学虽然总分与学号为 2 的同学一致，但是他的算法训练营成绩更高，所以在排名规则下更胜一筹。
+原错误排名中的逆序对数目为 2 ，这些逆序对分别为 (1,3) 和 (2,3)。</p>
+
+<h4 id="提示-2">提示</h4>
+
+<p>[可以使用起泡排序将所有学生进行排名。]
+[在起泡排序的过程中，每次交换都会使逆序对数目减少 1 ]
+[这道题可以设计出时间复杂度为 O(nlogn) 的算法。]</p>
+
+<h4 id="c-具体实现-4">C++具体实现</h4>
+
+<pre><code class="language-c++">// 这是进行排序的函数
+// n：题目描述中的 n
+// A：各同学的算法训练营成绩
+// DS：各同学的数据结构训练营成绩
+// 返回值：将要输出的数字依次加入到返回值的数组中
+vector&lt;int&gt; getAnswer(int n, vector&lt;int&gt; A, vector&lt;int&gt; DS) {
+  vector&lt;int&gt; sum,id;//分别记录各同学的总分，编号
+  vector&lt;int&gt; ans;//返回值
+//得到各同学的学号，总分
+  for(int i=0; i&lt;n; i++){
+    id.push_back(i+1);
+    sum.push_back(A[i]+DS[i]);
+  }
+  int cnt = 0;//记录逆序对个数
+//冒泡排序
+  for(int i=0; i&lt;n; ++i)
+    for(int j=i; j&lt;n-1; ++j)
+        if(sum[j+1]&gt;sum[j] || sum[j]==sum[j+1] &amp;&amp;A [j]&gt;A[j]){
+           swap(id[j+1],id[j]);
+           swap(sum[j+1],sum[j]);
+           swap(A[j+1],A[j]);
+           swap(DS[j+1],DS[j]);
+           ++cnt;
+        }
+  for(int i=0; i&lt;n; i++){
+    ans.push_back(id[i]);
+    ans.push_back(sum[i]);
+    ans.push_back(A[i]);
+    ans.push_back(DS[i]);
+  }
+  ans.push_back(cnt);
+  return ans;
+}
+</code></pre>
+
+<h3 id="习题7-等式-并查集">习题7：等式（并查集）</h3>
+
+<h4 id="描述-6">描述</h4>
+
+<p>n个变量和m个“相等”或“不相等”的约束条件，请你判定是否存在一种赋值方案满足所有m个约束条件。</p>
+
+<h4 id="输入-6">输入</h4>
+
+<p>第一行一个整数T，表示数据组数。(T&lt;=100)</p>
+
+<p>接下来会有T组数据，对于每组数据：</p>
+
+<p>第一行是两个整数n,m，表示变量个数和约束条件的个数。(1&lt;=n,m&lt;=500000)</p>
+
+<p>接下来m行，每行三个整数a,b,e(1&lt;=a,b&lt;=n)，表示第a个变量和第b个变量的关系：</p>
+
+<ul>
+<li>若e=0则表示第a个变量不等于第b个变量；</li>
+<li>若e=1则表示第a个变量等于第b个变量</li>
+</ul>
+
+<p>保证所有数据的n总和不超过500000。</p>
+
+<h4 id="输出-6">输出</h4>
+
+<p>输出T行，第i行表示第i组数据的答案。若第i组数据存在一种方案则输出&rdquo;Yes&rdquo;；否则输出&rdquo;No&rdquo;（不包括引号）。</p>
+
+<h4 id="输入样例-5">输入样例</h4>
+
+<pre><code>2
+5 5
+1 2 1
+2 3 1
+3 4 1
+1 4 1
+2 5 0
+3 3
+1 2 1
+2 3 1
+1 3 0
+</code></pre>
+
+<h4 id="输出样例-7">输出样例</h4>
+
+<pre><code>Yes
+No
+</code></pre>
+
+<h4 id="样例解释-2">样例解释</h4>
+
+<p>对于第一组数据，有5个约束：</p>
+
+<ul>
+<li>变量1=变量2</li>
+<li>变量2=变量3</li>
+<li>变量3=变量4</li>
+<li>变量1=变量4</li>
+<li>变量2≠变量5</li>
+</ul>
+
+<p>显然我们可以令：</p>
+
+<ul>
+<li>变量1=变量2=变量3=变量4=任意一个数值</li>
+<li>变量5=任意一个和变量2不同的数值</li>
+</ul>
+
+<p>故第一组数据输出&rdquo;Yes&rdquo;。</p>
+
+<p>对于第二组数据，有3个约束：</p>
+
+<ul>
+<li>变量1=变量2</li>
+<li>变量2=变量3</li>
+<li>变量1≠变量3</li>
+</ul>
+
+<p>由前两个约束可推出变量1=变量3，但第三个约束表明变量1≠变量3，矛盾。</p>
+
+<p>故第二组数据输出&rdquo;No&rdquo;。</p>
+
+<h4 id="提示-3">提示</h4>
+
+<p>用并查集来维护相等的集合
+（启发式合并）</p>
+
+<h4 id="问题分析-1">问题分析</h4>
+
+<ul>
+<li>将两个元素所在集合合并起来</li>
+<li>查询两个元素是否在同一个集合中</li>
+<li><strong>e=1的操作要在e=0的操作前执行</strong></li>
+</ul>
+
+<h4 id="c-具体实现-5">C++具体实现</h4>
+
+<pre><code class="language-c++">#include &lt;bits/stdC++.h&gt;
+using namespace std;
+const int len = 300005;
+//rankl 判断集合归并到哪家（即 低的一家的父亲节点 认 高的一家父亲节点做父亲节点）
+//father 用于父亲节点的记录
+int rankl[len];
+int father[len];
+//find父亲节点
+int find(int x){
+//如果father[x] == x则x的父亲节点就是自己（即没有父亲节点）
+//否则继续查找 自己的父亲节点
+return father[x] == x?x:father[x] = find(father[x]);
+}
+//判断 得出 结论
+string getAnswer(int m, int n, vector&lt;int&gt; A, vector&lt;int&gt; B, vector&lt;int&gt; E){
+for(int i = 1;i &lt;= n;i++){
+//初始化 一开始 父亲节点都是 自己
+//一开始各个集合的 秩都是 0
+father[i] = i;
+rankl[i] = 0;
+}
+//E = 1提前
+int cnt = 0;
+for(int i=0; i&lt;m; ++i) //将e=1的操作提到e=0的操作前
+if(E[i] == 1) {
+swap(E[i], E[cnt]);
+swap(A[i], A[cnt]);
+swap(B[i], B[cnt]);
+++cnt;
+}
+// 循环条件
+for(int i = 0;i &lt; m;i++){
+//找出A[i] 与 B[i]的最高父亲节点
+int setA = find(A[i]);
+int setB = find(B[i]);
+// 如果E[i] = 0 判断 如果 A[i] 和 B[i]的父亲节点相同说明 两个在一个集合中 则 此条件错误
+if(E[i] == 0){
+if(setA == setB)
+return &quot;No&quot;;
+}
+else{
+//判断 谁的秩高 低的集合的父亲节点认高的集合的父亲节点做父节点
+if(rankl[setA] &lt; rankl[setB])
+father[setA] = setB;
+else{
+father[setB] = setA;
+// 如果 两个节点父亲节点的秩的大小相同 则默认让 A[i] 做父亲节点
+if(setA == setB)
+rankl[setA] += 1;//相同时认A[i]做父亲的节点 其秩 + 1
+}
+}
+}
+return &quot;Yes&quot;;
+}
+int main(int argc, char const *argv[]){
+//A B 代表元素 E代表操作
+vector&lt;int&gt; A;
+vector&lt;int&gt; B;
+vector&lt;int&gt; E;
+//m代表判断条件的数量
+//n代表元素数量
+int m,n;
+scanf(&quot;%d%d&quot;,&amp;m,&amp;n);
+for(int i = 0;i &lt; m;i++){
+int ai,bi,ci;
+scanf(&quot;%d%d%d&quot;,&amp;ai,&amp;bi,&amp;ci);
+A.push_back(ai);
+B.push_back(bi);
+E.push_back(ci);
+}
+cout &lt;&lt; getAnswer(m,n,A,B,E);
+return 0;
+}
+</code></pre>
+
+<h3 id="习题-8-道路升级-kruscal">习题:8：道路升级（Kruscal）</h3>
+
+<h4 id="描述-7">描述</h4>
+
+<p>Z国有 n 个城市和 m 条双向道路，每条道路连接了两个不同的城市，保证所有城市之间都可以通过这些道路互达。每条道路都有一个载重量限制，这限制了通过这条道路的货车最大的载重量。道路的编号从 1 至 m 。巧合的是，所有道路的载重量限制恰好都与其编号相同。</p>
+
+<p>现在，要挑选出若干条道路，将它们升级成高速公路，并满足如下要求：</p>
+
+<ul>
+<li>所有城市之间都可以通过高速公路互达。</li>
+<li>对于任意两个城市 u,v 和足够聪明的货车司机：只经过高速公路从 u 到达 v 能够装载货物的最大重量，与经过任意道路从 u 到达 v 能够装载货物的最大重量相等。（足够聪明的司机只关注载重量，并不在意绕路）</li>
+<li>在上面的前提下，要求选出的道路数目尽可能少。</li>
+</ul>
+
+<p>求需要挑选出哪些道路升级成高速公路（如果有多种方案请任意输出一种）。</p>
+
+<h4 id="简要题意">简要题意</h4>
+
+<p>n个点和m条边,第i条边的边权为i，挑出一些边，满足：</p>
+
+<ul>
+<li>任意两个点都是连通的</li>
+<li>在所挑出边形成的图中，对于任意两个点，设两点之间所有路径所含的边的最大边权为maxEdge，则在原图中，对于任意两个点，两点之间所有路径所含的边的最大边权不大于maxEdge。</li>
+<li>满足前两个条件的情况下，边最小。</li>
+</ul>
+
+<h4 id="输入-7">输入</h4>
+
+<p>第一行 2 个用空格隔开的整数 n,m ，分别表示城市数目、道路数目。</p>
+
+<p>第 2 行到第 m+1 行，每行 2 个用空格隔开的整数 u,v 描述一条从 u 到 v 的双向道路，第 i+1 行的道路的编号为 i 。</p>
+
+<p>注意：数据只保证不存在连接的城市相同的道路（自环），并不保证不存在两条完全相同的边（重边）</p>
+
+<h4 id="输出-7">输出</h4>
+
+<p>第一行一个整数 k ，表示升级成高速公路的道路数。
+接下来 k 行每行一个整数，从小到大输出所有选出的道路的编号。</p>
+
+<h4 id="输入样例-6">输入样例</h4>
+
+<pre><code>3 3
+1 2
+2 3
+1 3
+</code></pre>
+
+<h4 id="输出样例-8">输出样例</h4>
+
+<pre><code>2
+2
+3
+</code></pre>
+
+<h4 id="c-具体实现-6">C++具体实现</h4>
+
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int N = 500005;
+//并查集
+class UnionSet{
+  public:
+    int f[N];
+    //初始化父节点   n：节点数量   开始每个节点的父节点是它自己本身
+    void init(int n){
+        for(int i=1; i&lt;=n; i++)
+            f[i] = i;
+    }
+    //查找节点x所在集合的根（路径压缩）
+    //x：节点x
+    //返回值：根
+    int find(int x){
+        return f[x] == x?x:f[x]=find(f[x]);
+    }
+    //将x节点与y节点所在集合合并
+    //x：一个节点
+    //y：一个节点
+    //返回值：返回true表示成功合并，返回false表示已经在一个集合里了
+    bool merge(int x,int y){
+        int setX = find(x);
+        int setY = find(y);
+        if(setX != setY){
+            f[setX] = setY;
+            return true;
+        }
+        return false;
+    }
+}us;
+// 给定一个n个点m条边的无向图，第i条边边权为i，求所有需要升级的边
+// n：n个点
+// m：m条边
+// U：大小为m的数组，表示m条边的其中一个端点
+// V：大小为m的数组，表示m条边的另一个端点
+// 返回值：所有需要升级的边，从小到大排列；第一小问的答案自然即为返回值的size，所以你不必考虑如何返回size
+vector&lt;int&gt; getAnswer(int n, int m, vector&lt;int&gt; U, vector&lt;int&gt; V) {
+    vector&lt;int&gt; ans;
+    us.init(n);
+    //构造最大生成树，找权值最大的边
+    for(int i=m-1; i&gt;=0; --i)
+        if(us.merge(U[i],V[i]))
+            ans.push_back(i+1);//加入边，从1开始的
+    reverse(ans.begin(),ans.end());
+    return ans;
+}
+
+int main() {
+    int n, m;
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    vector&lt;int&gt; U, V;
+    for (int i = 0; i &lt; m; ++i) {
+        int u, v;
+        scanf(&quot;%d%d&quot;, &amp;u, &amp;v);
+        U.push_back(u);
+        V.push_back(v);
+    }
+    vector&lt;int&gt; ans = getAnswer(n, m, U, V);
+    printf(&quot;%d\n&quot;, int(ans.size()));
+    for (int i = 0; i &lt; int(ans.size()); ++i)
+        printf(&quot;%d\n&quot;, ans[i]);
+    return 0;
+}
+</code></pre>
+
+<h3 id="习题9-二叉排序树">习题9：二叉排序树</h3>
+
+<h4 id="描述-8">描述</h4>
+
+<p>给定一个1到n的排列（无重复元素），按顺序依次插入到一棵二叉排序树中，请你将这棵二叉树前序遍历和后序遍历输出。
+保证树高不超过50 。</p>
+
+<h4 id="输入-8">输入</h4>
+
+<p>第一行一个整数n。（1 ≤ n ≤ 100000）
+接下来一行表示为n个整数，代表1到n的一个排列。</p>
+
+<h4 id="输出-8">输出</h4>
+
+<p>输出所建成的二叉树的前序遍历和后序遍历。</p>
+
+<h4 id="输入样例-7">输入样例</h4>
+
+<pre><code>10
+2 6 9 3 5 7 10 8 4 1
+</code></pre>
+
+<h4 id="输出样例-9">输出样例</h4>
+
+<pre><code>2 1 6 3 5 4 9 7 8 10
+1 4 5 3 8 7 10 9 6 2
+</code></pre>
+
+<h4 id="二叉排序树">二叉排序树</h4>
+
+<p>左子树小于节点，右子树大于节点</p>
+
+<h4 id="c-具体实现-7">C++具体实现</h4>
+
+<pre><code class="language-C++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+const int N = 100005;
+
+
+struct node{
+    int val,l,r;
+}t[N];
+int root,cnt;//root整个二叉树的根节点，cnt整个二叉树的大小
+
+
+//在以x为根的树中插入一个数字v
+//v:要插入的数字
+//x:当前节点，下标
+//返回根节点x
+
+
+int insert(int v, int x){
+    if(x == 0){
+        //根节点还不存在，则将x变成根节点
+        x = ++cnt;
+        t[x].val = v;
+        t[x].l = 0;
+        t[x].r = 0;
+        return x;
+    }
+    //递归插入左右子树，先与根节点比较
+    if(t[x].val &lt; v)
+        t[x].r = insert(v,t[x].r);
+    else
+        t[x].l = insert(v,t[x].l);
+    return x;
+}
+
+
+//以x为根的二叉树的前序遍历
+//x:当前节点
+//ans：存储结果的数组
+void dlr(int x, vector&lt;int&gt; &amp;ans){
+    if(x){
+        //加入x节点的val到ans中，递归求解左右子树
+        ans.push_back(t[x].val);
+        dlr(t[x].l,ans);
+        dlr(t[x].r,ans);
+    }
+}
+
+
+//后序遍历
+void lrd(int x, vector&lt;int&gt; &amp;ans){
+    if(x){
+        //递归求解左右子树，加入x节点的val到ans中
+        lrd(t[x].l,ans);
+        lrd(t[x].r,ans);
+        ans.push_back(t[x].val);
+    }
+}
+
+
+// 给定一个1到n的排列，依次插入到二叉树中，返回前序遍历和后序遍历
+// n：如题意
+// sequence：给定的排列，大小为n
+// 返回值：将要输出的元素依次加入到返回值中
+
+
+vector&lt;int&gt; getAnswer(int n, vector&lt;int&gt; sequence) {
+    root = cnt =0;
+    for(int i=0; i&lt;int(sequence.size());++i)
+        root = insert(sequence[i],root);
+    vector&lt;int&gt; ans;
+    dlr(root,ans);
+    lrd(root,ans);
+    return ans;
+}
+
+
+int main() {
+    int n,x;
+    scanf(&quot;%d&quot;, &amp;n);
+    vector&lt;int&gt; sequence;
+    for (int i = 0; i &lt; n; ++i) {
+        scanf(&quot;%d&quot;, &amp;x);
+        sequence.push_back(x);
+    }
+    vector&lt;int&gt; ans = getAnswer(n, sequence);
+    for (int i = 0; i &lt; n; ++i)
+        printf(&quot;%d%c&quot;, ans[i], &quot; \n&quot;[i == n - 1]);
+    for (int i = 0; i &lt; n; ++i)
+        printf(&quot;%d%c&quot;, ans[n + i], &quot; \n&quot;[i == n - 1]);
+    return 0;
+}
+</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

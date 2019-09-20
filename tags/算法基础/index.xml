@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 汤福平的博客</title>
-    <link>https://tangfuping.github.io/posts/</link>
-    <description>Recent content in Posts on 汤福平的博客</description>
+    <title>算法基础 on 汤福平的博客</title>
+    <link>https://tangfuping.github.io/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/</link>
+    <description>Recent content in 算法基础 on 汤福平的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 20 Sep 2019 20:15:35 +0800</lastBuildDate>
     
-	<atom:link href="https://tangfuping.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tangfuping.github.io/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
